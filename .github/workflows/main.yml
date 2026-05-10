@@ -1,0 +1,89 @@
+name: Build & Release APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+      release_notes:
+        description: 'Release notes'
+        required: false
+        default: 'New release'
+
+jobs:
+  build:
+    name: Build Release APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > $GITHUB_WORKSPACE/app/keystore.jks
+
+      - name: Build Release APK (arm64 only)
+        env:
+          KEYSTORE_PATH: ${{ github.workspace }}/app/keystore.jks
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Find APK
+        run: |
+          find app/build/outputs/apk/release -name "*.apk" | head -5
+          APK_PATH=$(find app/build/outputs/apk/release -name "*arm64*release*.apk" | head -1)
+          if [ -z "$APK_PATH" ]; then
+            APK_PATH=$(find app/build/outputs/apk/release -name "*.apk" | head -1)
+          fi
+          echo "APK_PATH=$APK_PATH" >> $GITHUB_ENV
+          cp "$APK_PATH" PasswordManager-${{ github.event.inputs.tag }}-arm64.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag }}
+          name: "密码管理器 ${{ github.event.inputs.tag }}"
+          body: |
+            ## 密码管理器 ${{ github.event.inputs.tag }}
+
+            ${{ github.event.inputs.release_notes }}
+
+            ### 功能
+            - 🔐 AES-256-GCM 加密存储密码
+            - 📁 密码分组管理
+            - ⭐ 收藏常用密码
+            - 🔍 快速搜索
+            - 📋 一键复制账号/密码
+            - 🔑 随机密码生成器
+
+            ### 安装
+            下载 `PasswordManager-${{ github.event.inputs.tag }}-arm64.apk`（适用于 arm64 设备）
+            
+            > **注意**：安装前请在设置中允许"未知来源"的应用安装
+          files: PasswordManager-${{ github.event.inputs.tag }}-arm64.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clean up keystore
+        if: always()
+        run: rm -f $GITHUB_WORKSPACE/app/keystore.jks
