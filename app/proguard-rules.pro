@@ -1,0 +1,5 @@
+-keep class com.passmanager.data.model.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class kotlin.Metadata { *; }
+-keepclassmembers class * extends androidx.room.RoomDatabase { *; }
