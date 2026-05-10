@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.PasswordManager" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.PasswordManager" parent="android:Theme.Material.NoTitleBar">
         <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
     </style>
 
     <style name="Theme.PasswordManager.SplashScreen" parent="Theme.SplashScreen">
