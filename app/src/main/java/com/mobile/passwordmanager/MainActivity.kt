@@ -14,6 +14,7 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mobile.passwordmanager.databinding.ActivityMainBinding
 import java.util.UUID
 
@@ -103,30 +104,32 @@ class MainActivity : AppCompatActivity() {
     // ---- FAB:选择创建分组或密码 ----
 
     private fun showAddDialog() {
-        val options = arrayOf(
-            getString(R.string.add_group),
-            getString(R.string.add_password)
-        )
-        AlertDialog.Builder(this)
+        val view = layoutInflater.inflate(R.layout.dialog_choose_add_type, null)
+        val dialog = MaterialAlertDialogBuilder(this)
             .setTitle(R.string.dialog_choose_add)
-            .setItems(options) { _, which ->
-                when (which) {
-                    0 -> showNewGroupDialog()
-                    1 -> startActivity(Intent(this, AddEditActivity::class.java))
-                }
-            }
-            .show()
+            .setView(view)
+            .create()
+
+        view.findViewById<View>(R.id.optionGroup).setOnClickListener {
+            dialog.dismiss()
+            showNewGroupDialog()
+        }
+        view.findViewById<View>(R.id.optionPassword).setOnClickListener {
+            dialog.dismiss()
+            startActivity(Intent(this, AddEditActivity::class.java))
+        }
+
+        dialog.show()
     }
 
     private fun showNewGroupDialog() {
-        val input = EditText(this).apply {
-            hint = getString(R.string.hint_group_name)
-            inputType = android.text.InputType.TYPE_CLASS_TEXT
-            setPadding(48, 32, 48, 0)
-        }
-        val dialog = AlertDialog.Builder(this)
+        val view = layoutInflater.inflate(R.layout.dialog_new_group, null)
+        val til = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tilGroupName)
+        val input = view.findViewById<EditText>(R.id.etGroupName)
+
+        val dialog = MaterialAlertDialogBuilder(this)
             .setTitle(R.string.dialog_new_group)
-            .setView(input)
+            .setView(view)
             .setNegativeButton(R.string.cancel, null)
             .setPositiveButton(R.string.save) { _, _ -> }
             .create()
@@ -135,9 +138,10 @@ class MainActivity : AppCompatActivity() {
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
             val name = input.text?.toString()?.trim().orEmpty()
             if (name.isEmpty()) {
-                input.error = getString(R.string.err_group_name_required)
+                til.error = getString(R.string.err_group_name_required)
                 return@setOnClickListener
             }
+            til.error = null
             val group = Group(
                 id = UUID.randomUUID().toString(),
                 name = name,
@@ -161,7 +165,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun confirmDeleteGroup(group: Group) {
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(R.string.delete)
             .setMessage(getString(R.string.confirm_delete_group, group.name.ifBlank { getString(R.string.untitled) }))
             .setNegativeButton(R.string.cancel, null)
@@ -183,7 +187,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun confirmDeleteEntry(entry: Entry) {
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(R.string.delete)
             .setMessage(getString(R.string.confirm_delete, entry.title.ifBlank { getString(R.string.untitled) }))
             .setNegativeButton(R.string.cancel, null)
@@ -218,7 +222,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showChangePasswordDialog() {
         val view = layoutInflater.inflate(R.layout.dialog_change_password, null)
-        val dialog = AlertDialog.Builder(this)
+        val dialog = MaterialAlertDialogBuilder(this)
             .setTitle(R.string.action_change_password)
             .setView(view)
             .setNegativeButton(R.string.cancel, null)
@@ -263,7 +267,7 @@ class MainActivity : AppCompatActivity() {
 
         if (FingerprintHelper.isEnabled(this)) {
             // 已启用 → 询问是否关闭
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.fingerprint_disable_title)
                 .setMessage(R.string.fingerprint_disable_msg)
                 .setPositiveButton(R.string.delete) { _, _ ->
@@ -287,7 +291,7 @@ class MainActivity : AppCompatActivity() {
             inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
             setPadding(48, 32, 48, 0)
         }
-        val dialog = AlertDialog.Builder(this)
+        val dialog = MaterialAlertDialogBuilder(this)
             .setTitle(R.string.enable_fingerprint)
             .setMessage(R.string.enable_fingerprint_msg)
             .setView(input)

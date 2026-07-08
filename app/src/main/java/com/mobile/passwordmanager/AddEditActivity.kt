@@ -2,8 +2,8 @@ package com.mobile.passwordmanager
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mobile.passwordmanager.databinding.ActivityAddEditBinding
 import java.util.UUID
 
@@ -85,7 +85,7 @@ class AddEditActivity : AppCompatActivity() {
 
     private fun confirmDelete() {
         val id = editingId ?: return
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(R.string.delete)
             .setMessage(getString(R.string.confirm_delete_entry))
             .setNegativeButton(R.string.cancel, null)

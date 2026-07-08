@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mobile.passwordmanager.databinding.ActivityUnlockBinding
 
 /**
@@ -156,7 +156,7 @@ class UnlockActivity : AppCompatActivity() {
      * 询问用户是否启用指纹解锁（首次设置或密码解锁后）。
      */
     private fun promptEnableFingerprint(masterPassword: String) {
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(R.string.enable_fingerprint)
             .setMessage(R.string.enable_fingerprint_msg)
             .setPositiveButton(R.string.enable) { _, _ ->

@@ -4,20 +4,22 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- 背景 -->
-    <path android:fillColor="#4F46E5" android:pathData="M0,0 h108 v108 h-108 z" />
-    <!-- 锁体 -->
+    <path android:fillColor="#5B53E8" android:pathData="M0,0 h108 v108 h-108 z" />
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M34,54 a4,4 0 0 1 4,-4 h32 a4,4 0 0 1 4,4 v28 a4,4 0 0 1 -4,4 h-32 a4,4 0 0 1 -4,-4 z" />
-    <!-- 锁梁 -->
+        android:pathData="M54,30
+            C48,34 41,36 35,37
+            C34,37 33,38 33,39
+            C33,54 36,68 43,76
+            C47,80.5 51,83.5 54,85
+            C57,83.5 61,80.5 65,76
+            C72,68 75,54 75,39
+            C75,38 74,37 73,37
+            C67,36 60,34 54,30 Z" />
     <path
-        android:strokeColor="#FFFFFF"
-        android:strokeWidth="6"
-        android:strokeLineCap="round"
-        android:fillColor="#00000000"
-        android:pathData="M42,50 v-6 a12,12 0 0 1 24,0 v6" />
-    <!-- 钥匙孔 -->
-    <path android:fillColor="#4F46E5" android:pathData="M54,60 m-3.2,0 a3.2,3.2 0 0 1 6.4,0 a3.2,3.2 0 0 1 -6.4,0 z" />
-    <path android:fillColor="#4F46E5" android:pathData="M52.4,63 h3.2 l1,8 h-5.2 z" />
+        android:fillColor="#5B53E8"
+        android:pathData="M54,52 m-5,0 a5,5 0 0 1 10,0 a5,5 0 0 1 -10,0 z" />
+    <path
+        android:fillColor="#5B53E8"
+        android:pathData="M51.6,56 h4.8 l2,14 h-8.8 z" />
 </vector>

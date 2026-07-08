@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mobile.passwordmanager.databinding.ActivityGroupBinding
 
 /**
@@ -80,7 +81,7 @@ class GroupActivity : AppCompatActivity() {
     }
 
     private fun confirmDelete(entry: Entry) {
-        androidx.appcompat.app.AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(R.string.delete)
             .setMessage(getString(R.string.confirm_delete, entry.title.ifBlank { getString(R.string.untitled) }))
             .setNegativeButton(R.string.cancel, null)
