@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">密码管理器</string>
+
+    <!-- 解锁 / 设置 -->
+    <string name="title_setup">设置主密码</string>
+    <string name="title_unlock">解锁</string>
+    <string name="title_edit">编辑密码</string>
+    <string name="subtitle_unlock">请输入主密码以解锁密码库</string>
+    <string name="subtitle_setup">设置一个主密码,用于加密你的所有密码</string>
+    <string name="hint_master_password">主密码</string>
+    <string name="hint_confirm_password">确认主密码</string>
+    <string name="hint_current_password">当前主密码</string>
+    <string name="hint_new_password">新主密码</string>
+    <string name="warn_master_password">主密码无法找回,请务必牢记。它用于加密你的全部数据,丢失后将无法解密。</string>
+    <string name="action_unlock">解锁</string>
+    <string name="action_create">创建密码库</string>
+    <string name="action_change_password">修改主密码</string>
+    <string name="action_lock">锁定</string>
+
+    <!-- 错误 -->
+    <string name="err_empty_password">请输入主密码</string>
+    <string name="err_password_too_short">主密码至少需要 6 位</string>
+    <string name="err_password_mismatch">两次输入的主密码不一致</string>
+    <string name="err_wrong_password">主密码错误</string>
+    <string name="err_unknown">发生未知错误</string>
+    <string name="err_title_required">请填写标题</string>
+    <string name="err_group_name_required">请输入分组名称</string>
+
+    <!-- 列表 -->
+    <string name="add_entry">添加密码</string>
+    <string name="empty_state">还没有保存任何密码\n点击右下角的 + 添加第一条</string>
+    <string name="untitled">未命名</string>
+    <string name="no_username">(无用户名)</string>
+    <string name="confirm_delete">确定删除「%1$s」吗?此操作不可撤销。</string>
+    <string name="confirm_delete_entry">确定删除这条记录吗?此操作不可撤销。</string>
+    <string name="confirm_delete_group">确定删除分组「%1$s」吗?分组内的密码将移回主页。</string>
+
+    <!-- 分组 -->
+    <string name="section_groups">分组</string>
+    <string name="section_passwords">密码</string>
+    <string name="add_group">新建分组</string>
+    <string name="add_password">新建密码</string>
+    <string name="hint_group_name">分组名称</string>
+    <string name="group_entry_count">%1$d 条密码</string>
+    <string name="group_empty">此分组下还没有密码</string>
+    <string name="title_group">分组</string>
+    <string name="dialog_new_group">新建分组</string>
+    <string name="dialog_choose_add">选择创建类型</string>
+
+    <!-- 编辑 -->
+    <string name="hint_title">标题(如网站名)</string>
+    <string name="hint_username">用户名 / 邮箱</string>
+    <string name="hint_password">密码</string>
+    <string name="hint_url">网址(可选)</string>
+    <string name="hint_notes">备注(可选)</string>
+    <string name="generate_password">生成随机密码</string>
+    <string name="show_password">显示密码</string>
+    <string name="copy_password">复制密码</string>
+    <string name="copy_username">复制用户名</string>
+
+    <!-- 通用 -->
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+    <string name="msg_password_changed">主密码已修改</string>
+
+    <!-- 指纹 -->
+    <string name="action_fingerprint">指纹设置</string>
+    <string name="fingerprint_unlock">指纹解锁</string>
+    <string name="enable_fingerprint">启用指纹解锁</string>
+    <string name="enable_fingerprint_msg">启用后可使用指纹快速解锁应用，无需每次输入主密码。</string>
+    <string name="enable">启用</string>
+    <string name="fingerprint_unlock_title">指纹解锁</string>
+    <string name="fingerprint_unlock_subtitle">请触摸指纹传感器以解锁应用</string>
+    <string name="fingerprint_setup_title">验证指纹</string>
+    <string name="fingerprint_setup_subtitle">需要验证指纹以加密保存主密码</string>
+    <string name="fingerprint_auth_failed">指纹验证失败，请使用密码解锁</string>
+    <string name="fingerprint_key_invalid">指纹密钥已失效，请重新启用指纹解锁</string>
+    <string name="fingerprint_not_available">此设备不支持指纹解锁</string>
+    <string name="fingerprint_enabled_toast">已启用指纹解锁</string>
+    <string name="fingerprint_disabled_toast">已关闭指纹解锁</string>
+    <string name="fingerprint_disable_title">关闭指纹解锁</string>
+    <string name="fingerprint_disable_msg">确定要关闭指纹解锁功能吗？之后需要手动输入主密码解锁。</string>
+</resources>

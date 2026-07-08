@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/group_item_background"
+    android:layout_marginLeft="@dimen/spacing_m"
+    android:layout_marginRight="@dimen/spacing_m"
+    android:layout_marginTop="@dimen/spacing_s"
+    android:layout_marginBottom="@dimen/spacing_s"
+    android:elevation="2dp"
+    android:paddingLeft="@dimen/spacing_l"
+    android:paddingRight="@dimen/spacing_m"
+    android:paddingTop="@dimen/spacing_m"
+    android:paddingBottom="@dimen/spacing_m">
+
+    <FrameLayout
+        android:layout_width="@dimen/icon_list_container"
+        android:layout_height="@dimen/icon_list_container"
+        android:layout_marginEnd="@dimen/spacing_l">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_circle_group" />
+
+        <ImageView
+            android:layout_width="@dimen/icon_list"
+            android:layout_height="@dimen/icon_list"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_folder"
+            app:tint="@color/group_icon_fg"
+            android:contentDescription="@string/section_groups" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvGroupName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            android:textColor="@color/group_title_text"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:text="社交账号" />
+
+        <TextView
+            android:id="@+id/tvGroupCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="@dimen/text_caption"
+            android:textColor="@color/group_subtitle_text"
+            tools:text="3 条密码" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:src="@drawable/ic_chevron_right"
+        app:tint="@color/group_subtitle_text"
+        android:contentDescription="@string/title_group" />
+
+    <ImageButton
+        android:id="@+id/btnDeleteGroup"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="@dimen/spacing_xs"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_delete"
+        android:contentDescription="@string/delete"
+        app:tint="?attr/colorError" />
+</LinearLayout>

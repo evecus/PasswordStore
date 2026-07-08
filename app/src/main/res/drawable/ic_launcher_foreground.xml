@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 锁体 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,54 a4,4 0 0 1 4,-4 h32 a4,4 0 0 1 4,4 v28 a4,4 0 0 1 -4,4 h-32 a4,4 0 0 1 -4,-4 z" />
+    <!-- 锁梁(弧形描边) -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M42,50 v-6 a12,12 0 0 1 24,0 v6" />
+    <!-- 钥匙孔 -->
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M54,60 m-3.2,0 a3.2,3.2 0 0 1 6.4,0 a3.2,3.2 0 0 1 -6.4,0 z" />
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M52.4,63 h3.2 l1,8 h-5.2 z" />
+</vector>

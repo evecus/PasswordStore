@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground"
+    android:paddingLeft="@dimen/spacing_l"
+    android:paddingRight="@dimen/spacing_l"
+    android:paddingTop="@dimen/spacing_m"
+    android:paddingBottom="@dimen/spacing_m">
+
+    <FrameLayout
+        android:layout_width="@dimen/icon_list_container"
+        android:layout_height="@dimen/icon_list_container"
+        android:layout_marginEnd="@dimen/spacing_l">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_circle_entry" />
+
+        <ImageView
+            android:layout_width="@dimen/icon_list"
+            android:layout_height="@dimen/icon_list"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_key"
+            app:tint="@color/entry_icon_fg"
+            android:contentDescription="@string/copy_password" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:text="Example Site" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="@dimen/text_caption"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:text="user@example.com" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnCopy"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_copy"
+        android:contentDescription="@string/copy_password"
+        app:tint="?attr/colorPrimary" />
+
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/spacing_xs"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_delete"
+        android:contentDescription="@string/delete"
+        app:tint="?attr/colorError" />
+</LinearLayout>
