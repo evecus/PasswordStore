@@ -44,7 +44,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: test
-          name: PasswordManager test
+          name: PasswordStore test
           prerelease: true
           make_latest: false
           files: out/PasswordManager-debug.apk
