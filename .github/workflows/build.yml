@@ -39,19 +39,6 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
-      - name: Verify / repair gradle-wrapper.jar
-        run: |
-          if ! unzip -tq gradle/wrapper/gradle-wrapper.jar > /dev/null 2>&1; then
-            echo "gradle-wrapper.jar is corrupted, regenerating..."
-            gradle wrapper --gradle-version 8.9
-            chmod +x ./gradlew
-          else
-            echo "gradle-wrapper.jar OK"
-          fi
-
-      # 从输入的 v1.0.0 解析出:
-      #   VERSION_NAME = 1.0.0   (去掉开头的 v)
-      #   VERSION_CODE = 100     (去掉 v 和所有的 .)
       - name: Compute versionName / versionCode
         run: |
           raw="${{ inputs.version }}"
