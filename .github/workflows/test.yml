@@ -44,11 +44,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: test
-          name: "Debug build (test)"
-          body: |
-            自动构建的 Debug APK，用于测试。
-            提交: ${{ github.sha }}
-            构建时间: ${{ github.event.repository.updated_at }}
+          name: PasswordManager test
           prerelease: true
           make_latest: false
           files: out/PasswordManager-debug.apk
