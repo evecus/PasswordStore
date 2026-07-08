@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">密码管理器</string>
+    <string name="app_name">PasswordStore</string>
 
     <!-- 解锁 / 设置 -->
     <string name="title_setup">设置主密码</string>
