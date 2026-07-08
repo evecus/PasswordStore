@@ -18,7 +18,7 @@
     <color name="group_title_text">@color/group_title_text_dark</color>
     <color name="group_subtitle_text">@color/group_subtitle_text_dark</color>
     <color name="group_icon_bg">@color/group_icon_bg_dark</color>
-    <color name="group_icon_fg">@color/group_icon_fg</color>
+    + <color name="group_icon_fg">@color/white</color>
 
     <color name="entry_icon_bg">@color/entry_icon_bg_dark</color>
     <color name="entry_icon_fg">@color/entry_icon_fg_dark</color>
