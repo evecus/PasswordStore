@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mikepenz.iconics.IconicsDrawable
 
 /**
  * 图标选择弹窗的网格适配器。[selectedKey] 为空表示"不使用品牌图标,保留默认图标"。
@@ -39,7 +40,7 @@ class IconPickerAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val entry = items[position]
-        holder.ivIcon.setIcon(entry.icon)
+        holder.ivIcon.setIcon(IconicsDrawable(holder.itemView.context, entry.icon))
         holder.tvLabel.text = entry.label
         holder.selectedRing.visibility = if (entry.key == selectedKey) View.VISIBLE else View.GONE
         holder.itemView.setOnClickListener { onSelect(entry) }

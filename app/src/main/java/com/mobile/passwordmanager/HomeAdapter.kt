@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.mikepenz.iconics.IconicsDrawable
 import com.mobile.passwordmanager.databinding.ItemEntryBinding
 import com.mobile.passwordmanager.databinding.ItemGroupBinding
 import com.mobile.passwordmanager.databinding.ItemSectionHeaderBinding
@@ -93,7 +94,7 @@ class HomeAdapter(
                     tvGroupCount.text = ctx.getString(R.string.group_entry_count, item.count)
                     val iconEntry = IconCatalog.find(item.group.iconKey)
                     if (iconEntry != null) {
-                        ivGroupIconBrand.setIcon(iconEntry.icon)
+                        ivGroupIconBrand.setIcon(IconicsDrawable(ctx, iconEntry.icon))
                         ivGroupIconBrand.visibility = android.view.View.VISIBLE
                         ivGroupIconDefault.visibility = android.view.View.GONE
                     } else {
@@ -115,7 +116,7 @@ class HomeAdapter(
                     tvUsername.text = item.entry.username.ifBlank { ctx.getString(R.string.no_username) }
                     val iconEntry = IconCatalog.find(item.entry.iconKey)
                     if (iconEntry != null) {
-                        ivEntryIconBrand.setIcon(iconEntry.icon)
+                        ivEntryIconBrand.setIcon(IconicsDrawable(ctx, iconEntry.icon))
                         ivEntryIconBrand.visibility = android.view.View.VISIBLE
                         ivEntryIconDefault.visibility = android.view.View.GONE
                     } else {

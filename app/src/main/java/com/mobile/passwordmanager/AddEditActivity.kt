@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mikepenz.iconics.IconicsDrawable
 import com.mobile.passwordmanager.databinding.ActivityAddEditBinding
 import java.util.UUID
 
@@ -73,7 +74,7 @@ class AddEditActivity : AppCompatActivity() {
     private fun refreshIconPreview() {
         val entry = IconCatalog.find(iconKey)
         if (entry != null) {
-            binding.ivEntryIconBrand.setIcon(entry.icon)
+            binding.ivEntryIconBrand.setIcon(IconicsDrawable(this, entry.icon))
             binding.ivEntryIconBrand.visibility = View.VISIBLE
             binding.ivEntryIconDefault.visibility = View.GONE
         } else {

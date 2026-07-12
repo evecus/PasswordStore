@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.mikepenz.iconics.IconicsDrawable
 import com.mobile.passwordmanager.databinding.ItemEntryBinding
 
 class EntriesAdapter(
@@ -29,7 +30,7 @@ class EntriesAdapter(
             tvUsername.text = item.username.ifBlank { root.context.getString(R.string.no_username) }
             val iconEntry = IconCatalog.find(item.iconKey)
             if (iconEntry != null) {
-                ivEntryIconBrand.setIcon(iconEntry.icon)
+                ivEntryIconBrand.setIcon(IconicsDrawable(root.context, iconEntry.icon))
                 ivEntryIconBrand.visibility = android.view.View.VISIBLE
                 ivEntryIconDefault.visibility = android.view.View.GONE
             } else {

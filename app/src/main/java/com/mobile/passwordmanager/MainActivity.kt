@@ -15,6 +15,7 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mikepenz.iconics.IconicsDrawable
 import com.mobile.passwordmanager.databinding.ActivityMainBinding
 import java.util.UUID
 
@@ -136,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         fun refreshIconPreview() {
             val entry = IconCatalog.find(selectedIconKey)
             if (entry != null) {
-                ivBrand.setIcon(entry.icon)
+                ivBrand.setIcon(IconicsDrawable(view.context, entry.icon))
                 ivBrand.visibility = View.VISIBLE
                 ivDefault.visibility = View.GONE
             } else {
