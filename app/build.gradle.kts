@@ -68,6 +68,16 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        // com.mikepenz:iconics-core/iconics-views:5.5.0 传递引入了 androidx.core:core(-ktx):1.17.0,
+        // 该版本要求 compileSdk 36 + AGP 8.9.1+,与当前项目的 compileSdk 34 / AGP 8.7.3 不兼容。
+        // 强制锁定为项目自身声明的兼容版本,避免升级 AGP/compileSdk。
+        force("androidx.core:core:1.13.1")
+        force("androidx.core:core-ktx:1.13.1")
+    }
+}
+
 dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
