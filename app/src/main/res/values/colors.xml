@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主色调:靛蓝紫 -->
+    <color name="primary">#5B53E8</color>
+    <color name="primary_dark">#3F38B5</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="ic_launcher_background">#5B53E8</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- 辅助色 -->
+    <color name="secondary">#7C4DFF</color>
+    <color name="tertiary">#FF6B9D</color>
+
+    <!-- 解锁页渐变 -->
+    <color name="gradient_start">#5B53E8</color>
+    <color name="gradient_end">#7C4DFF</color>
+
+    <!-- 分组卡片 -->
+    <color name="group_card_bg">#EFEDFC</color>
+    <color name="group_card_bg_dark">#1B1A38</color>
+    <color name="group_card_stroke">#D8D4F8</color>
+    <color name="group_card_stroke_dark">#2E2C52</color>
+    <color name="group_title_text">#3F38B5</color>
+    <color name="group_title_text_dark">#A9A2F0</color>
+    <color name="group_subtitle_text">#6E68C8</color>
+    <color name="group_subtitle_text_dark">#827ADE</color>
+    <color name="group_icon_bg">#5B53E8</color>
+    <color name="group_icon_bg_dark">#3F38B5</color>
+    <color name="group_icon_fg">#FFFFFF</color>
+
+    <!-- 密码项图标背景 -->
+    <color name="entry_icon_bg">#F0EFFE</color>
+    <color name="entry_icon_bg_dark">#26243F</color>
+    <color name="entry_icon_fg">#5B53E8</color>
+    <color name="entry_icon_fg_dark">#A9A2F0</color>
+
+    <!-- 空状态图标 -->
+    <color name="empty_icon">#C5C2E8</color>
+    <color name="empty_icon_dark">#3A3858</color>
+</resources>
